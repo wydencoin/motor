@@ -1,0 +1,7 @@
+# Planilhas reais NUNCA entram no repositório (LGPD)
+*.xlsx
+*.csv
+!dados_exemplo/*.csv
+__pycache__/
+.venv/
+.env
