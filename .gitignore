@@ -5,3 +5,6 @@
 __pycache__/
 .venv/
 .env
+
+# Artefatos de build (`uv build`)
+dist/
