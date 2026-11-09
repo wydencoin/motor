@@ -2,13 +2,16 @@
 
 Motor de recompensas em Python: lê a planilha de indicadores, aplica as regras e envia as emissões aprovadas para a API. Responsável: **Henrique**.
 
+Gerenciado com [uv](https://docs.astral.sh/uv/): o projeto fica em `src/motor/`, é instalado em modo
+editable no `.venv` pelo `uv sync` e expõe o comando `motor`.
+
 ```bash
-python -m venv .venv && source .venv/bin/activate
-pip install -e ".[dev]"
-pytest
-python dados_exemplo/gerar.py                       # cria uma planilha FALSA
-python -m motor.cli dados_exemplo/planilha_falsa.xlsx --data-ref 2026-10-17 --ciclo 2026-10-B
+uv sync                                             # cria o .venv e instala deps + grupo dev
+uv run pytest                                       # roda os testes
+uv run python dados_exemplo/gerar.py                # cria uma planilha FALSA
+uv run motor dados_exemplo/planilha_falsa.xlsx --data-ref 2026-10-17 --ciclo 2026-10-B
 ```
+
 Com `--enviar`, manda para a API (variáveis `API_URL` e `INTERNAL_API_TOKEN`).
 
 **Planilhas reais nunca entram no repositório** (o `.gitignore` bloqueia `.xlsx` e `.csv`). Guarde-as na pasta privada do projeto.

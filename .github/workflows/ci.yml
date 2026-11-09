@@ -3,9 +3,17 @@ on: [push, pull_request]
 jobs:
   test:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.14"]
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with: { python-version: "3.12" }
-      - run: pip install -e ".[dev]"
-      - run: pytest -q
+      - uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+      - name: Instalar Python
+        run: uv python install ${{ matrix.python-version }}
+      - name: Sincronizar dependências
+        run: uv sync --locked --python ${{ matrix.python-version }}
+      - name: Testes (pytest)
+        run: uv run --python ${{ matrix.python-version }} pytest -q
