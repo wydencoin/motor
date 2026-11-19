@@ -1,11 +1,21 @@
 """Regras de recompensa v0 (ver docs/regras/regras-v0.md). Valores vêm da tabela `regras` no banco;
 VALORES_PADRAO é só para rodar localmente."""
+
 from dataclasses import dataclass
+
 import pandas as pd
 
 VALORES_PADRAO = {
-    "SIA_15D": 20, "SAVA_15D": 20, "PRES_100": 40, "PRES_60": 20, "DIG_ESTUDO": 40,
-    "SIM_FEZ": 100, "SIM_PARCIAL": 50, "CR_9": 150, "CR_8": 100, "CR_7": 50,
+    "SIA_15D": 20,
+    "SAVA_15D": 20,
+    "PRES_100": 40,
+    "PRES_60": 20,
+    "DIG_ESTUDO": 40,
+    "SIM_FEZ": 100,
+    "SIM_PARCIAL": 50,
+    "CR_9": 150,
+    "CR_8": 100,
+    "CR_7": 50,
 }
 
 
