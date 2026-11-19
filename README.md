@@ -5,6 +5,13 @@ Motor de recompensas em Python: lê a planilha de indicadores, aplica as regras 
 Gerenciado com [uv](https://docs.astral.sh/uv/): o projeto fica em `src/motor/`, é instalado em modo
 editable no `.venv` pelo `uv sync` e expõe o comando `motor`.
 
+## Pré-requisitos
+
+- [Python](https://www.python.org/) >= 3.14
+- [uv](https://docs.astral.sh/uv/) (gerenciador de dependências e ambientes)
+
+## Execução
+
 ```bash
 uv sync                                             # cria o .venv e instala deps + grupo dev
 uv run pytest                                       # roda os testes
