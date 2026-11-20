@@ -23,6 +23,17 @@ Com `--enviar`, manda para a API (variáveis `API_URL` e `INTERNAL_API_TOKEN`).
 
 **Planilhas reais nunca entram no repositório** (o `.gitignore` bloqueia `.xlsx` e `.csv`). Guarde-as na pasta privada do projeto.
 
+## Qualidade de Código
+
+O projeto utiliza o [Ruff](https://docs.astral.sh/ruff/) para linting e formatação:
+
+```bash
+uv run ruff check .                                 # verifica erros e boas práticas
+uv run ruff check --fix .                           # corrige automaticamente problemas tratáveis
+uv run ruff format --check .                        # valida se todos os arquivos estão formatados
+uv run ruff format .                                # formata o código do projeto
+```
+
 ## Pendências
 - Regras de evolução (`VOLTOU`, `PRES_SUBIU`) precisam de duas extrações.
 - `ESTUDO_30` e `ESTUDO_SUBIU` aguardam a coluna de tempo de estudo.
